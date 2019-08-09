@@ -17,6 +17,7 @@ class EditActivity : AppCompatActivity() {
         title = "Edit Movie"
 
         //Pressing the button gives ListActivity the data about the movie and returns to ListActivity
+        //The "movie" in putExtra is used as a key to get the information from ListActivity
         btn_save_movie.setOnClickListener{
             var intentSaveMovie = Intent()
             intentSaveMovie.putExtra("movie", createMovie())
@@ -24,9 +25,12 @@ class EditActivity : AppCompatActivity() {
             finish()
         }
     }
-    //Return a movie using text from EditText and with a boolean value
+    //Create and return a movie using text from EditText and with a boolean value
     fun createMovie(): Movie{
-        var newMovie = Movie(edit_text_add_movie.text.toString(), false)
+
+        //ToDo
+        //Create a way to toggle the boolean value
+        var newMovie = Movie(edit_text_add_movie.text.toString(), true)
         return newMovie
     }
 }
