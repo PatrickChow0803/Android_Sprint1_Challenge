@@ -25,6 +25,7 @@ class EditActivity : AppCompatActivity() {
             intentSaveMovie.putExtra("movie", createMovie())
             setResult(RESULT_OK, intentSaveMovie)
             finish()
+            
         }
 
         //createTextView's listener will refer to this
