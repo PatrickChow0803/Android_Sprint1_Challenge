@@ -25,7 +25,7 @@ class ListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        title = "List of Movies" 
+        title = "List of Movies"  
 
         btn_add_movie.setOnClickListener{
             var intent = Intent(this, EditActivity::class.java)
