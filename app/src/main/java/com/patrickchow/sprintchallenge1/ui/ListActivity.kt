@@ -52,6 +52,7 @@ class ListActivity : AppCompatActivity() {
 
             //Use the movie's ID to help refer to it
             movieIntent.putExtra("movieKey", movieList[newMovieView.id])
+            movieIntent.putExtra("remove", movieList[newMovieView.id])
             movieList.removeAt(newMovieView.id)
             startActivityForResult(movieIntent, REQUEST_CODE_EDIT_MOVIE)
         }
