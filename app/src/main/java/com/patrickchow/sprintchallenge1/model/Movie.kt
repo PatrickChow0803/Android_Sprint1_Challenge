@@ -2,4 +2,4 @@ package com.patrickchow.sprintchallenge1.model
 
 import java.io.Serializable
 
-class Movie (title: String, watched: Boolean):Serializable
+class Movie (var title: String, var watched: Boolean = false):Serializable
