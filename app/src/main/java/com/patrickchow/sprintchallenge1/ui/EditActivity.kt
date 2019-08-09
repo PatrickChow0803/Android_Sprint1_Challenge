@@ -30,6 +30,12 @@ class EditActivity : AppCompatActivity() {
             finish()
         }
 
+        btn_delete_movie.setOnClickListener{
+            var intentDeleteMovie = Intent()
+            setResult(RESULT_OK, intentDeleteMovie)
+            finish()
+        }
+
         switch1.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked) {
                 watchFlag = false
@@ -49,7 +55,7 @@ class EditActivity : AppCompatActivity() {
     }
     //Create and return a movie using text from EditText and with a boolean value
     fun createMovie(): Movie{
-        
+
         var newMovie = Movie(edit_text_add_movie.text.toString(), watchFlag)
         return newMovie
     }

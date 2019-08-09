@@ -18,9 +18,31 @@
     <Button
             android:id="@+id/btn_save_movie"
             android:text="SAVE"
+            android:textColor="#19C520"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+    <Button
+            android:id="@+id/btn_delete_movie"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="delete (Work in progress)"
+            android:textColor="#E70707"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <Switch
+            android:text="Watched?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/edit_text_add_movie"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

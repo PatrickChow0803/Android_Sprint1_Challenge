@@ -40,7 +40,7 @@ class ListActivity : AppCompatActivity() {
         newMovieView.text = movie.title
 
         //ToDo
-        //Temporary solution, if movie is watched, then make the text red.
+        //Temporary solution, if movie isn't watched, then make the text red.
         //The code should however make the text strike-though
         if(movie.watched==true)
             newMovieView.setTextColor(Color.RED)
