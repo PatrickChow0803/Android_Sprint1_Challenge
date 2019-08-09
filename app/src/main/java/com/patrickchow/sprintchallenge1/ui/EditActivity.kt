@@ -12,11 +12,14 @@ import kotlinx.android.synthetic.main.activity_edit.*
 
 class EditActivity : AppCompatActivity() {
 
+    var watchFlag = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
         title = "Edit Movie"
+
 
         //Pressing the button gives ListActivity the data about the movie and returns to ListActivity
         //The "movie" in putExtra is used as a key to get the information from ListActivity
@@ -25,7 +28,15 @@ class EditActivity : AppCompatActivity() {
             intentSaveMovie.putExtra("movie", createMovie())
             setResult(RESULT_OK, intentSaveMovie)
             finish()
-            
+        }
+
+        switch1.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked) {
+                watchFlag = false
+            }
+            else{
+                watchFlag = true
+            }
         }
 
         //createTextView's listener will refer to this
@@ -34,13 +45,12 @@ class EditActivity : AppCompatActivity() {
             if(bundle!=null) {
                 editMovie(bundle!!.getSerializable("movieKey") as Movie)
             }
+
     }
     //Create and return a movie using text from EditText and with a boolean value
     fun createMovie(): Movie{
-
-        //ToDo
-        //Create a way to toggle the boolean value
-        var newMovie = Movie(edit_text_add_movie.text.toString(), true)
+        
+        var newMovie = Movie(edit_text_add_movie.text.toString(), watchFlag)
         return newMovie
     }
 
