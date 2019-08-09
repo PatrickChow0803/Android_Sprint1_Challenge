@@ -30,12 +30,14 @@ class EditActivity : AppCompatActivity() {
             finish()
         }
 
+        //TODO Delete a view
         btn_delete_movie.setOnClickListener{
             var intentDeleteMovie = Intent()
             setResult(RESULT_OK, intentDeleteMovie)
             finish()
         }
 
+        //Toggle for if the movie is watched or not
         switch1.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked) {
                 watchFlag = false
@@ -49,11 +51,11 @@ class EditActivity : AppCompatActivity() {
         //Call editMovie using information from the view's listener intent
         var bundle: Bundle?= intent.extras
             if(bundle!=null) {
-                editMovie(bundle!!.getSerializable("movieKey") as Movie)
+                editMovie(bundle.getSerializable("movieKey") as Movie)
             }
 
     }
-    //Create and return a movie using text from EditText and with a boolean value
+    //Create and return a Movie object by using text from EditText and with a boolean value
     fun createMovie(): Movie{
 
         var newMovie = Movie(edit_text_add_movie.text.toString(), watchFlag)
