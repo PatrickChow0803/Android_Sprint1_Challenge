@@ -10,6 +10,8 @@ import com.patrickchow.sprintchallenge1.R
 import com.patrickchow.sprintchallenge1.model.Movie
 import kotlinx.android.synthetic.main.activity_main.*
 
+//ListActivity is used to display movies
+
 class ListActivity : AppCompatActivity() {
 
     var movieList = mutableListOf<Movie>()
@@ -38,10 +40,21 @@ class ListActivity : AppCompatActivity() {
         newMovieView.text = movie.title
 
         //ToDo
-        //Temporary, if movie is watched, then make the text red.
+        //Temporary solution, if movie is watched, then make the text red.
         //The code should however make the text strike-though
         if(movie.watched==true)
             newMovieView.setTextColor(Color.RED)
+
+        //Listener for if the view is clicked, the movie title
+        //can be edited by using EditActivity
+        newMovieView.setOnClickListener{
+            var movieIntent = Intent(this, EditActivity::class.java)
+
+            //Use the movie's ID to help refer to it
+            movieIntent.putExtra("movieKey", movieList[newMovieView.id])
+            movieList.removeAt(newMovieView.id)
+            startActivityForResult(movieIntent, REQUEST_CODE_EDIT_MOVIE)
+        }
         return newMovieView
     }
 
@@ -54,6 +67,7 @@ class ListActivity : AppCompatActivity() {
             movieList.add(newMovieResult)
             val newMovieView = createTextView(newMovieResult, counter)
             linear_layout.addView(newMovieView)
+            //Each time this function is called, the counter is increased to keep track of each movie
             counter++
         }
     }

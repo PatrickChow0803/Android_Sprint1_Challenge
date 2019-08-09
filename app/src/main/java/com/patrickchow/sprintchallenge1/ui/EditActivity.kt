@@ -8,6 +8,8 @@ import com.patrickchow.sprintchallenge1.R
 import com.patrickchow.sprintchallenge1.model.Movie
 import kotlinx.android.synthetic.main.activity_edit.*
 
+//EditActivity is used to add and edit movies
+
 class EditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,13 @@ class EditActivity : AppCompatActivity() {
             setResult(RESULT_OK, intentSaveMovie)
             finish()
         }
+
+        //createTextView's listener will refer to this
+        //Call editMovie using information from the view's listener intent
+        var bundle: Bundle?= intent.extras
+            if(bundle!=null) {
+                editMovie(bundle!!.getSerializable("movieKey") as Movie)
+            }
     }
     //Create and return a movie using text from EditText and with a boolean value
     fun createMovie(): Movie{
@@ -32,5 +41,11 @@ class EditActivity : AppCompatActivity() {
         //Create a way to toggle the boolean value
         var newMovie = Movie(edit_text_add_movie.text.toString(), true)
         return newMovie
+    }
+
+    //Used for when the user taps on a view to edit the title of the movie
+    fun editMovie(movie: Movie){
+        val title = movie.title
+        edit_text_add_movie.setText(title)
     }
 }
