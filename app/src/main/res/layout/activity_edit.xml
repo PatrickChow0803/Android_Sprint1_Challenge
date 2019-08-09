@@ -7,4 +7,18 @@
         android:layout_height="match_parent"
         tools:context=".ui.EditActivity">
 
+    <EditText
+            android:id="@+id/edit_text_add_movie"
+            android:hint="Enter a movie here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+            android:id="@+id/save_movie"
+            android:text="SAVE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
