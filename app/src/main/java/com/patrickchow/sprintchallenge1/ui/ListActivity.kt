@@ -58,6 +58,21 @@ class ListActivity : AppCompatActivity() {
         return newMovieView
     }
 
+    //Remove all the views from the Linear Layout and then repopulate it
+    //using all the movies,
+    fun displayAllMovies(){
+        linear_layout.removeAllViews()
+        for(counter in 0..movieList.size - 1){
+            linear_layout.addView(createTextView(movieList[counter], counter))
+        }
+    }
+
+    //Display all the movies when resumption of ListActivity comes.
+    override fun onPostResume() {
+        displayAllMovies()
+        super.onPostResume()
+    }
+
     //Get the result from EditActivity, place the new movie in the list,
     //Call createTextView and then place that new TextView into the Linear Layout
     //The "movie" is used as a key to communicate with EditActivity
