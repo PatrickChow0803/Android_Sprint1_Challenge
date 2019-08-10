@@ -50,7 +50,6 @@ class EditActivity : AppCompatActivity() {
         var bundle: Bundle?= intent.extras
             if(bundle!=null) {
                 editMovie(bundle.getSerializable("movieKey") as Movie)
-                editMovie(bundle.getSerializable("remove") as Movie)
             }
     }
     //Create and return a Movie object by using text from EditText and with a boolean value

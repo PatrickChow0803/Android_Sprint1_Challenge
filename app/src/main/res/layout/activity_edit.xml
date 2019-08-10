@@ -27,7 +27,7 @@
             android:id="@+id/btn_delete_movie"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="delete (Work in progress)"
+            android:text="delete"
             android:textColor="#E70707"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
